@@ -171,10 +171,10 @@ name_table_in_txt = "table_in_txt"
 name_table_in_csv = "table_in_csv"
 
 with open(f"{name_intermediate_table_in_txt}.txt", "w", encoding="utf-8") as txt_file:
-    txt_file.write(csv_intermediate)
+    txt_file.write(res3)
 
 with open(f"{name_intermediate_table_in_csv}.csv", "w", encoding="utf-8") as csv_file:
-    csv_file.write(csv_intermediate)
+    csv_file.write(res3)
 
     
 with open(f"{name_table_in_txt}.txt", "w", encoding="utf-8") as txt_file:
