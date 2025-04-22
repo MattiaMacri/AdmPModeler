@@ -139,7 +139,7 @@ human_msg_4 = """##INPUT
 <ARTICOLO DI LEGGE>:
 {law_article}
 <TABELLA ATTIVITA DELLA PROCEDURA>:
-{csv_intermedio}
+{csv_intermediate}
 ##OUTPUT
 <TABELLA DEI METADATI>:"""
 
@@ -155,7 +155,7 @@ chain4 = LLMChain(llm=llm, prompt=prompt_4, output_key="final_csv")
 res1 = chain1.run(law_article=law_article, purpose=purpose)
 res2 = chain2.run(law_article=law_article, flowchart=res1)
 res3 = chain3.run(flowchart=res2)
-res4 = chain4.run(articolo=law_article, csv_intermediate=res3)
+res4 = chain4.run(law_article=law_article, csv_intermediate=res3)
 
 # Print results
 print("Initial Flowchart:\n", res1)
