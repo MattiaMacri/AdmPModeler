@@ -30,6 +30,7 @@ To achieve this, the system relies on three prompt-based extraction steps, two o
 ---
 
 ## Repository Structure
+```
 .
 ├── AdmPModeler.py # Main script to extract process models and output them in BPMN, CSV and HTML formats
 ├── Requirements.txt # Dependencies for running the tool
@@ -39,5 +40,5 @@ To achieve this, the system relies on three prompt-based extraction steps, two o
 │ ├── output_model.csv
 │ ├── output_model.bpmn
 │ └── output_model.html
----
+```
 
