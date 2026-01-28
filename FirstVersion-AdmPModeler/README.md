@@ -1,3 +1,7 @@
+# Attention: ⚠️ This folder contains the first version of AdmPModeler.
+# It represents the initial implementation of the project and is kept for reference and comparison purposes.
+# Here, the first version of AdmPModeler will be referred simply as "AdmPModeler"
+
 # AdmPModeler
 
 AdmPModeler is a Python-based tool designed to model administrative procedures from their textual descriptions. The goal is to extract structured process models and provide both CSV outputs and visual representations of the derived workflows.
