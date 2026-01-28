@@ -1,11 +1,11 @@
-langchain==1.2.7         # Latest stable release of LangChain (core) ⚡️ :contentReference[oaicite:0]{index=0}
-langchain-openai==1.1.7  # LangChain integration for OpenAI ✨ :contentReference[oaicite:1]{index=1}
-openai>=1.75.0           # OpenAI official SDK (1.75.0+ recente) :contentReference[oaicite:2]{index=2}
-tiktoken>=0.6.0          # Tokenizer lib for OpenAI/LLMs 🧠 :contentReference[oaicite:3]{index=3}
-pandas>=2.2.3            # Dataframe library 📊 :contentReference[oaicite:4]{index=4}
-networkx>=3.4.2          # Graph-processing library 🕸️ :contentReference[oaicite:5]{index=5}
-matplotlib>=3.9.1        # Visualization lib 📈 :contentReference[oaicite:6]{index=6}
-python-dotenv>=1.0.0     # dotenv support 🌿
-pydantic>=2.11.4         # Data validation (Pydantic v2) 💠 :contentReference[oaicite:7]{index=7}
-openpyxl>=3.1.5          # Excel files support 📑 :contentReference[oaicite:8]{index=8}
-python-docx>=1.1.0       # DOCX file handling 📄 :contentReference[oaicite:9]{index=9}
+langchain==1.2.7         
+langchain-openai==1.1.7  
+openai>=1.75.0           
+tiktoken>=0.6.0          
+pandas>=2.2.3            
+networkx>=3.4.2          
+matplotlib>=3.9.1        
+python-dotenv>=1.0.0     
+pydantic>=2.11.4         
+openpyxl>=3.1.5          
+python-docx>=1.1.0       
