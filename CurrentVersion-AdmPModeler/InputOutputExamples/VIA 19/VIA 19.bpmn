@@ -1,0 +1,379 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_1" targetNamespace="http://example.bpmn" exporter="bpmn-js (https://demo.bpmn.io)" exporterVersion="18.6.1">
+  <bpmn:process id="Process_1" isExecutable="true">
+    <bpmn:task id="A1" name="Trasmissione dello studio preliminare ambientale e copia del pagamento all&#39;autorità competente">
+      <bpmn:incoming>Flow_1px2vq9</bpmn:incoming>
+    </bpmn:task>
+    <bpmn:task id="A2" name="Verifica della completezza e adeguatezza della documentazione entro cinque giorni" />
+    <bpmn:task id="A5" name="Richiesta di chiarimenti e integrazioni al proponente" />
+    <bpmn:task id="A6" name="Invio di chiarimenti e integrazioni entro quindici giorni" />
+    <bpmn:task id="A7" name="Pubblicazione dello studio preliminare sul sito internet">
+      <bpmn:incoming>J_5bbf76f4_A10</bpmn:incoming>
+      <bpmn:outgoing>Flow_1qaxghd</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="A8" name="Comunicazione della pubblicazione alle amministrazioni e enti interessati">
+      <bpmn:incoming>Flow_1qaxghd</bpmn:incoming>
+      <bpmn:outgoing>Flow_0o5s8ox</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="A9" name="Fine" />
+    <bpmn:task id="A10" name="Presentazione di osservazioni all&#39;autorità competente entro trenta giorni dalla pubblicazione">
+      <bpmn:incoming>Flow_0o5s8ox</bpmn:incoming>
+    </bpmn:task>
+    <bpmn:task id="A11" name="Verifica di possibili ulteriori impatti ambientali significativi" />
+    <bpmn:task id="A12" name="Adozione del provvedimento di verifica di assoggettabilità a VIA entro quarantacinque giorni dalla scadenza del termine per le osservazioni" />
+    <bpmn:task id="A13" name="Comunicazione della proroga al proponente" />
+    <bpmn:task id="A14" name="Pubblicazione della comunicazione sul sito" />
+    <bpmn:task id="A15" name="Richiesta di chiarimenti e integrazioni al proponente" />
+    <bpmn:task id="A16" name="Richiesta di sospensione per un massimo di quarantacinque giorni" />
+    <bpmn:task id="A19" name="Adozione del provvedimento di verifica" />
+    <bpmn:task id="A20" name="Specifica dei motivi e, se richiesto, delle condizioni ambientali" />
+    <bpmn:task id="A21" name="Specifica dei motivi per l&#39;assoggettamento a VIA" />
+    <bpmn:task id="A22" name="Pubblicazione integrale del provvedimento di verifica di assoggettabilità a VIA sul sito internet" />
+    <bpmn:task id="A23" name="Rilascio del provvedimento in caso di inerzia" />
+    <bpmn:task id="A24" name="Pubblicazione di tutta la documentazione e delle informazioni raccolte sul sito internet, accessibili a chiunque" />
+    <bpmn:exclusiveGateway id="C1" name="Documentazione completa e adeguata?" />
+    <bpmn:exclusiveGateway id="C2" name="Chiarimenti e integrazioni inviati entro il termine?" />
+    <bpmn:exclusiveGateway id="C3" name="Necessità di proroga?" />
+    <bpmn:exclusiveGateway id="C4" name="Proponente richiede sospensione termini?" />
+    <bpmn:exclusiveGateway id="C6" name="Progetto non assoggettato a VIA?" />
+    <bpmn:endEvent id="EndEvent_619a00e6" name="End" />
+    <bpmn:endEvent id="EndEvent_0e02db9f" name="End" />
+    <bpmn:exclusiveGateway id="J_5bbf76f4">
+      <bpmn:incoming>C2_A7</bpmn:incoming>
+      <bpmn:incoming>C1_A3</bpmn:incoming>
+    </bpmn:exclusiveGateway>
+    <bpmn:exclusiveGateway id="J_32b3a4dd">
+      <bpmn:incoming>C4_C5</bpmn:incoming>
+    </bpmn:exclusiveGateway>
+    <bpmn:exclusiveGateway id="J_40fa4000" />
+    <bpmn:sequenceFlow id="A1_A2" sourceRef="A1" targetRef="A2" />
+    <bpmn:sequenceFlow id="A2_C1" sourceRef="A2" targetRef="C1" />
+    <bpmn:sequenceFlow id="C1_A3" name="sì" sourceRef="C1" targetRef="J_5bbf76f4" />
+    <bpmn:sequenceFlow id="C1_A5" name="no" sourceRef="C1" targetRef="A5" />
+    <bpmn:sequenceFlow id="J_5bbf76f4_A10" sourceRef="J_5bbf76f4" targetRef="A7" />
+    <bpmn:sequenceFlow id="A5_A6" sourceRef="A5" targetRef="A6" />
+    <bpmn:sequenceFlow id="A6_C2" sourceRef="A6" targetRef="C2" />
+    <bpmn:sequenceFlow id="C2_A7" name="sì" sourceRef="C2" targetRef="J_5bbf76f4" />
+    <bpmn:sequenceFlow id="C2_A9" name="no" sourceRef="C2" targetRef="A9" />
+    <bpmn:sequenceFlow id="A9_EndEvent_619a00e6" sourceRef="A9" targetRef="EndEvent_619a00e6" />
+    <bpmn:sequenceFlow id="A10_A11" sourceRef="A10" targetRef="A11" />
+    <bpmn:sequenceFlow id="A11_A12" sourceRef="A11" targetRef="A12" />
+    <bpmn:sequenceFlow id="A12_C3" sourceRef="A12" targetRef="C3" />
+    <bpmn:sequenceFlow id="C3_A13" name="sì" sourceRef="C3" targetRef="A13" />
+    <bpmn:sequenceFlow id="C3_A19" name="no" sourceRef="C3" targetRef="A19" />
+    <bpmn:sequenceFlow id="A13_A14" sourceRef="A13" targetRef="A14" />
+    <bpmn:sequenceFlow id="A14_A15" sourceRef="A14" targetRef="A15" />
+    <bpmn:sequenceFlow id="A15_C4" sourceRef="A15" targetRef="C4" />
+    <bpmn:sequenceFlow id="C4_A16" name="sì" sourceRef="C4" targetRef="A16" />
+    <bpmn:sequenceFlow id="C4_C5" name="no" sourceRef="C4" targetRef="J_32b3a4dd" />
+    <bpmn:sequenceFlow id="A16_J_32b3a4dd" sourceRef="A16" targetRef="J_32b3a4dd" />
+    <bpmn:sequenceFlow id="A19_J_32b3a4dd" sourceRef="A19" targetRef="J_32b3a4dd" />
+    <bpmn:sequenceFlow id="J_32b3a4dd_C6" sourceRef="J_32b3a4dd" targetRef="C6" />
+    <bpmn:sequenceFlow id="C6_A20" name="sì" sourceRef="C6" targetRef="A20" />
+    <bpmn:sequenceFlow id="C6_A21" name="no" sourceRef="C6" targetRef="A21" />
+    <bpmn:sequenceFlow id="A20_J_40fa4000" sourceRef="A20" targetRef="J_40fa4000" />
+    <bpmn:sequenceFlow id="A21_J_40fa4000" sourceRef="A21" targetRef="J_40fa4000" />
+    <bpmn:sequenceFlow id="J_40fa4000_A22" sourceRef="J_40fa4000" targetRef="A22" />
+    <bpmn:sequenceFlow id="A22_A23" sourceRef="A22" targetRef="A23" />
+    <bpmn:sequenceFlow id="A23_A24" sourceRef="A23" targetRef="A24" />
+    <bpmn:sequenceFlow id="A24_EndEvent_0e02db9f" sourceRef="A24" targetRef="EndEvent_0e02db9f" />
+    <bpmn:startEvent id="StartEvent_8fde8e77" name="Start 1">
+      <bpmn:outgoing>Flow_1px2vq9</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="Flow_1px2vq9" sourceRef="StartEvent_8fde8e77" targetRef="A1" />
+    <bpmn:sequenceFlow id="Flow_1qaxghd" sourceRef="A7" targetRef="A8" />
+    <bpmn:sequenceFlow id="Flow_0o5s8ox" sourceRef="A8" targetRef="A10" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_1">
+      <bpmndi:BPMNShape id="A1_di" bpmnElement="A1">
+        <omgdc:Bounds x="360" y="530" width="120" height="120" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="A2_di" bpmnElement="A2">
+        <omgdc:Bounds x="560" y="530" width="120" height="120" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="A5_di" bpmnElement="A5">
+        <omgdc:Bounds x="960" y="680" width="120" height="120" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="A6_di" bpmnElement="A6">
+        <omgdc:Bounds x="1160" y="680" width="120" height="120" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="A9_di" bpmnElement="A9">
+        <omgdc:Bounds x="1560" y="830" width="120" height="120" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="C1_di" bpmnElement="C1" isMarkerVisible="true">
+        <omgdc:Bounds x="760" y="530" width="120" height="120" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="779" y="650" width="83" height="40" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="C2_di" bpmnElement="C2" isMarkerVisible="true">
+        <omgdc:Bounds x="1360" y="680" width="120" height="120" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="1376" y="800" width="88" height="40" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="EndEvent_619a00e6_di" bpmnElement="EndEvent_619a00e6">
+        <omgdc:Bounds x="1760" y="830" width="120" height="120" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="1810" y="950" width="20" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="StartEvent_8fde8e77_di" bpmnElement="StartEvent_8fde8e77">
+        <omgdc:Bounds x="160" y="530" width="120" height="120" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="204" y="650" width="33" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="A7_di" bpmnElement="A7">
+        <omgdc:Bounds x="1926" y="385" width="120" height="120" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="A8_di" bpmnElement="A8">
+        <omgdc:Bounds x="2166" y="385" width="120" height="120" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="J_5bbf76f4_di" bpmnElement="J_5bbf76f4" isMarkerVisible="true">
+        <omgdc:Bounds x="1746" y="385" width="120" height="120" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="A10_di" bpmnElement="A10">
+        <omgdc:Bounds x="2390" y="385" width="120" height="120" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="A11_di" bpmnElement="A11">
+        <omgdc:Bounds x="2590" y="385" width="120" height="120" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="A12_di" bpmnElement="A12">
+        <omgdc:Bounds x="2790" y="385" width="120" height="120" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="A13_di" bpmnElement="A13">
+        <omgdc:Bounds x="3190" y="235" width="120" height="120" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="A14_di" bpmnElement="A14">
+        <omgdc:Bounds x="3390" y="235" width="120" height="120" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="A15_di" bpmnElement="A15">
+        <omgdc:Bounds x="3590" y="235" width="120" height="120" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="A16_di" bpmnElement="A16">
+        <omgdc:Bounds x="3990" y="85" width="120" height="120" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="A19_di" bpmnElement="A19">
+        <omgdc:Bounds x="3190" y="535" width="120" height="120" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="C3_di" bpmnElement="C3" isMarkerVisible="true">
+        <omgdc:Bounds x="2990" y="385" width="120" height="120" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="3020" y="505" width="60" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="C4_di" bpmnElement="C4" isMarkerVisible="true">
+        <omgdc:Bounds x="3790" y="235" width="120" height="120" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="3819" y="355" width="63" height="53" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="A20_di" bpmnElement="A20">
+        <omgdc:Bounds x="4537" y="85" width="120" height="120" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="A21_di" bpmnElement="A21">
+        <omgdc:Bounds x="4537" y="385" width="120" height="120" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="A22_di" bpmnElement="A22">
+        <omgdc:Bounds x="4937" y="235" width="120" height="120" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="A23_di" bpmnElement="A23">
+        <omgdc:Bounds x="5137" y="235" width="120" height="120" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="A24_di" bpmnElement="A24">
+        <omgdc:Bounds x="5337" y="235" width="120" height="120" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="C6_di" bpmnElement="C6" isMarkerVisible="true">
+        <omgdc:Bounds x="4337" y="235" width="120" height="120" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="4361" y="355" width="73" height="40" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="EndEvent_0e02db9f_di" bpmnElement="EndEvent_0e02db9f">
+        <omgdc:Bounds x="5537" y="235" width="120" height="120" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="5587" y="355" width="20" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="J_32b3a4dd_di" bpmnElement="J_32b3a4dd" isMarkerVisible="true">
+        <omgdc:Bounds x="4137" y="235" width="120" height="120" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="J_40fa4000_di" bpmnElement="J_40fa4000" isMarkerVisible="true">
+        <omgdc:Bounds x="4737" y="235" width="120" height="120" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="A1_A2_di" bpmnElement="A1_A2">
+        <omgdi:waypoint x="480" y="590" />
+        <omgdi:waypoint x="560" y="590" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="A2_C1_di" bpmnElement="A2_C1">
+        <omgdi:waypoint x="680" y="590" />
+        <omgdi:waypoint x="760" y="590" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="C1_A3_di" bpmnElement="C1_A3">
+        <omgdi:waypoint x="880" y="590" />
+        <omgdi:waypoint x="960" y="440" />
+        <omgdi:waypoint x="1279" y="440" />
+        <omgdi:waypoint x="1751" y="450" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="916" y="490" width="9" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="C1_A5_di" bpmnElement="C1_A5">
+        <omgdi:waypoint x="880" y="590" />
+        <omgdi:waypoint x="960" y="740" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="914" y="640" width="13" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="A5_A6_di" bpmnElement="A5_A6">
+        <omgdi:waypoint x="1080" y="740" />
+        <omgdi:waypoint x="1160" y="740" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="A6_C2_di" bpmnElement="A6_C2">
+        <omgdi:waypoint x="1280" y="740" />
+        <omgdi:waypoint x="1360" y="740" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="C2_A7_di" bpmnElement="C2_A7">
+        <omgdi:waypoint x="1480" y="740" />
+        <omgdi:waypoint x="1761" y="460" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="1605" y="581" width="9" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="C2_A9_di" bpmnElement="C2_A9">
+        <omgdi:waypoint x="1480" y="740" />
+        <omgdi:waypoint x="1560" y="890" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="1514" y="790" width="13" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="A9_EndEvent_619a00e6_di" bpmnElement="A9_EndEvent_619a00e6">
+        <omgdi:waypoint x="1680" y="890" />
+        <omgdi:waypoint x="1760" y="890" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1px2vq9_di" bpmnElement="Flow_1px2vq9">
+        <omgdi:waypoint x="280" y="590" />
+        <omgdi:waypoint x="360" y="590" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="J_5bbf76f4_A10_di" bpmnElement="J_5bbf76f4_A10">
+        <omgdi:waypoint x="1866" y="445" />
+        <omgdi:waypoint x="1926" y="445" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1qaxghd_di" bpmnElement="Flow_1qaxghd">
+        <omgdi:waypoint x="2046" y="445" />
+        <omgdi:waypoint x="2166" y="445" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0o5s8ox_di" bpmnElement="Flow_0o5s8ox">
+        <omgdi:waypoint x="2286" y="445" />
+        <omgdi:waypoint x="2390" y="445" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="A10_A11_di" bpmnElement="A10_A11">
+        <omgdi:waypoint x="2510" y="445" />
+        <omgdi:waypoint x="2590" y="445" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="A11_A12_di" bpmnElement="A11_A12">
+        <omgdi:waypoint x="2710" y="445" />
+        <omgdi:waypoint x="2790" y="445" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="A12_C3_di" bpmnElement="A12_C3">
+        <omgdi:waypoint x="2910" y="445" />
+        <omgdi:waypoint x="2990" y="445" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="C3_A13_di" bpmnElement="C3_A13">
+        <omgdi:waypoint x="3110" y="445" />
+        <omgdi:waypoint x="3190" y="295" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="3146" y="345" width="9" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="A13_A14_di" bpmnElement="A13_A14">
+        <omgdi:waypoint x="3310" y="295" />
+        <omgdi:waypoint x="3390" y="295" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="A14_A15_di" bpmnElement="A14_A15">
+        <omgdi:waypoint x="3510" y="295" />
+        <omgdi:waypoint x="3590" y="295" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="A15_C4_di" bpmnElement="A15_C4">
+        <omgdi:waypoint x="3710" y="295" />
+        <omgdi:waypoint x="3790" y="295" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="C4_A16_di" bpmnElement="C4_A16">
+        <omgdi:waypoint x="3910" y="295" />
+        <omgdi:waypoint x="3910" y="145" />
+        <omgdi:waypoint x="3990" y="145" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="3915" y="153" width="9" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="A16_J_32b3a4dd_di" bpmnElement="A16_J_32b3a4dd">
+        <omgdi:waypoint x="4110" y="145" />
+        <omgdi:waypoint x="4197" y="145" />
+        <omgdi:waypoint x="4197" y="235" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="C3_A19_di" bpmnElement="C3_A19">
+        <omgdi:waypoint x="3110" y="445" />
+        <omgdi:waypoint x="3190" y="595" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="3144" y="495" width="13" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="A19_J_32b3a4dd_di" bpmnElement="A19_J_32b3a4dd">
+        <omgdi:waypoint x="3310" y="609" />
+        <omgdi:waypoint x="4197" y="609" />
+        <omgdi:waypoint x="4197" y="355" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="C4_C5_di" bpmnElement="C4_C5">
+        <omgdi:waypoint x="3910" y="295" />
+        <omgdi:waypoint x="4137" y="295" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="3933" y="273" width="13" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="C6_A20_di" bpmnElement="C6_A20">
+        <omgdi:waypoint x="4457" y="295" />
+        <omgdi:waypoint x="4537" y="145" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="4493" y="195" width="9" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="A20_J_40fa4000_di" bpmnElement="A20_J_40fa4000">
+        <omgdi:waypoint x="4657" y="145" />
+        <omgdi:waypoint x="4737" y="295" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="C6_A21_di" bpmnElement="C6_A21">
+        <omgdi:waypoint x="4457" y="295" />
+        <omgdi:waypoint x="4537" y="445" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="4491" y="345" width="13" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="A21_J_40fa4000_di" bpmnElement="A21_J_40fa4000">
+        <omgdi:waypoint x="4657" y="445" />
+        <omgdi:waypoint x="4737" y="295" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="J_40fa4000_A22_di" bpmnElement="J_40fa4000_A22">
+        <omgdi:waypoint x="4857" y="295" />
+        <omgdi:waypoint x="4937" y="295" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="A22_A23_di" bpmnElement="A22_A23">
+        <omgdi:waypoint x="5057" y="295" />
+        <omgdi:waypoint x="5137" y="295" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="A23_A24_di" bpmnElement="A23_A24">
+        <omgdi:waypoint x="5257" y="295" />
+        <omgdi:waypoint x="5337" y="295" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="A24_EndEvent_0e02db9f_di" bpmnElement="A24_EndEvent_0e02db9f">
+        <omgdi:waypoint x="5457" y="295" />
+        <omgdi:waypoint x="5537" y="295" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="J_32b3a4dd_C6_di" bpmnElement="J_32b3a4dd_C6">
+        <omgdi:waypoint x="4257" y="295" />
+        <omgdi:waypoint x="4337" y="295" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>
